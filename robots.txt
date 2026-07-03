@@ -1,0 +1,9 @@
+# robots.txt — CYBERCON Solutions
+# Coming-soon page is public and indexable so the brand is discoverable.
+
+User-agent: *
+Allow: /
+
+# Block nothing sensitive yet; add Disallow rules as the full site grows.
+
+Sitemap: https://www.cyberconsolutions.com/sitemap.xml

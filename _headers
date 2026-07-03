@@ -1,0 +1,18 @@
+# Cloudflare Pages — _headers
+# Security + caching headers applied at the edge. Deploy this file at the site root.
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.hcaptcha.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; script-src 'self' 'unsafe-inline' https://js.hcaptcha.com https://*.hcaptcha.com https://www.googletagmanager.com; frame-src https://*.hcaptcha.com; connect-src 'self' https://api.web3forms.com https://*.hcaptcha.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'self'
+
+# Long-cache immutable static assets (fingerprinted files)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML: always revalidate so a launch swap goes live immediately
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
